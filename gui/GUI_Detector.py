@@ -10,7 +10,7 @@ import shutil  # Untuk operasi file tingkat tinggi (misalnya, menyalin file)
 import threading  # Untuk menjalankan proses (seperti video) secara paralel agar UI tidak macet
 import time  # Untuk memberikan jeda singkat dalam loop thread
 import openpyxl  # Untuk membaca dan menulis file Excel (.xlsx)
-from ultralytics import YOLO  # Yolo khusus versi 8 dari ultralytics
+from ultralytics import YOLO  # Yolo dari ultralytics
 import numpy as np
 
 def resource_path(relative_path):
@@ -45,7 +45,7 @@ class GUIDetectorApp:
     FONT_BOLD = ("Segoe UI", 12, "bold")
     FONT_NORMAL = ("Segoe UI", 11)
     FONT_SMALL = ("Segoe UI", 9)
-    MODEL_DIR = "models"  # Nama direktori untuk menyimpan model YOLO
+    MODEL_DIR = "gui/models"  # Nama direktori untuk menyimpan model YOLO
 
     # --- Metode Inisialisasi (`__init__`) ---
     def __init__(self, root):
@@ -101,7 +101,7 @@ class GUIDetectorApp:
         # Menangani event penutupan jendela untuk cleanup yang aman
         self.root.protocol("WM_DELETE_WINDOW", self._on_closing)
 
-        # --- [TAMBAHAN] Menambahkan log pertama saat aplikasi dimulai ---
+        # --- Menambahkan log pertama saat aplikasi dimulai ---
         self._add_log("Aplikasi berhasil dimulai.")
 
     def _setup_model_directory(self):
@@ -214,7 +214,7 @@ class GUIDetectorApp:
 
         ttk.Button(right_frame, text="Simpan Hasil", command=self._save_results).grid(row=2, column=0, sticky="ew", pady=(20, 10), ipady=5)
 
-        # --- [TAMBAHAN] Frame untuk tombol bawah (About & Log) ---
+        # --- Frame untuk tombol bawah (About & Log) ---
         bottom_button_frame = ttk.Frame(right_frame)
         bottom_button_frame.grid(row=3, column=0, sticky="ew", pady=(5, 0))
         bottom_button_frame.columnconfigure(0, weight=1) # Kolom untuk tombol About
