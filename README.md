@@ -33,8 +33,8 @@ Before running the program, ensure you have the following installed:
 2.  **Set up a Virtual Environment** (Recommended):
     ```bash
     # Windows
-    python -m venv gui_env
-    .\gui_env\Scripts\activate
+    python -m venv gui\gui_env
+    gui\gui_env\Scripts\activate
     ```
 
 3.  **Install Dependencies**:
@@ -52,7 +52,7 @@ Before running the program, ensure you have the following installed:
 To start the detection program, run the Python script:
 
 ```bash
-python Training_Program.py
+python GUI_Detector.py
 ```
 
 **Optional** (Windows Only):
